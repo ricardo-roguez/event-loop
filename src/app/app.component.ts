@@ -12,26 +12,29 @@ export class AppComponent {
   }
 
   initTimeoutDemo(): void {
-    const dateAtInit = new Date().getSeconds();
+   
+    console.log('[Sistema] Antes del timeout:', this.getFormattedTime());
+
+    setTimeout(() => console.log('[Sistema] En el timeout:', this.getFormattedTime()), 3000);
+
+    console.log('[Sistema] Después del timeout:', this.getFormattedTime());
+
+    this.sleep(2000);
     
-    console.log('Antes del timeout:', this.getFormattedTime());
-
-    setTimeout(() => console.log('En el timeout:', this.getFormattedTime()), 3000);
-
-    console.log('Después del timeout:', this.getFormattedTime());
-
-    while(true) {
-      const now = new Date().getSeconds();
-      if(now - dateAtInit >= 2) {
-        console.log('Sistema parado por 2 segundos', this.getFormattedTime());
-        break;
-      }
-    }
-    console.log('Después del loop:', this.getFormattedTime());
+    console.log('[Sistema] Final del programa:', this.getFormattedTime());
   }
 
   private getFormattedTime(): string {
     const now = new Date();
     return `Es el segundo ${now.getSeconds()} con ${now.getMilliseconds()} milisegundos`;
+  }
+
+  private sleep(milliseconds: number): void {
+    const date = Date.now();
+    let currentDate = null;
+    do {
+      currentDate = Date.now();
+    } while (currentDate - date < milliseconds);
+    console.log('[Sistema] Fin del sleep', this.getFormattedTime());
   }
 }
