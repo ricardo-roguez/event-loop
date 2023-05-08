@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   inputOne = 'Valor del input One';
   constructor() {
-    // this.initTimeoutDemo();
+    this.initTimeoutDemo();
   }
 
   initTimeoutDemo(): void {
