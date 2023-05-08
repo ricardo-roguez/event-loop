@@ -12,10 +12,9 @@ export class AppComponent {
   }
 
   initTimeoutDemo(): void {
-   
     console.log('[Sistema] Antes del timeout:', this.getFormattedTime());
 
-    setTimeout(() => console.log('[Sistema] En el timeout:', this.getFormattedTime()), 3000);
+    setTimeout(() => console.log('[Sistema] En el timeout:', this.getFormattedTime()), 0);
 
     console.log('[Sistema] Después del timeout:', this.getFormattedTime());
 
